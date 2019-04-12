@@ -25,7 +25,7 @@ then
     if [ "$distributive" == "alt" ]
     then
       apt="apt-get -y"
-      apt-get -y install make wget
+      apt-get -y install make wget cryptopro-preinstall
     else
       apt="yum -y"
     fi
