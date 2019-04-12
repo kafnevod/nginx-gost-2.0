@@ -16,7 +16,7 @@
 
 Перед установкой nginx необходимо в каталог, где  размещен скрипт `install-nginx.sh` (здесь и далее каталог `/root/`) поместить требуемую X64/RPM версию `КриптоПро CSP/UNIX` со страницы [КриптоПро CSP - Загрузка файлов](https://www.cryptopro.ru/products/csp/downloads).
 
-В нашем слечае это сертифицироанная версия 
+В нашем случае это сертифицироанная версия 
 ```
 КриптоПро CSP 4.0 для Linux (x64, rpm)
 Контрольная сумма
@@ -32,10 +32,24 @@ MD5: eba649ae2c974a8c9d0cd69d2b508ae7
 # ./install-nginx.sh --csp=linux-amd64.tgz
 ```
 
+Результат выполнения команды:
+- промежуточный файлы *.rpm, *.tar.gz,  и каталоги в текущем каталоге (/root/);
+- бинарные файлы, библиотеки в каталаге `/opt/cprocsp/`;
+- бинарный код `/usr/sbin/nginx` и настройки в каталоге `/etc/nginx`. 
+
+
+## Установка сертификата и настройка nginx
+
+
 
 Добавление в тропу `PATH` каталогов `/opt/cprocsp/bin/`, `/opt/cprocsp/sbin/`
 ```
 # .  /etc/bashrc.d/cryptopro-paths.sh
+```
+Убедитесь, что переменаая PATH изменилась:
+```
+# echo $PATH
+/opt/cprocsp/bin/amd64:/opt/cprocsp/sbin/amd64:/root/bin:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
 ```
 
 Генерация ключей:
