@@ -1,4 +1,8 @@
 
+## Установка nginx-сервера
+
+
+
 ## Установка библиотек libskk-.1.1
 
 ### Библиотека от CryptoPro
@@ -17,8 +21,23 @@ https://www.cryptopro.ru/products/csp/downloads#latest_csp50_linux
 # apt-get install cprocsp-curl* lsb-cprocsp-base* lsb-cprocsp-capilite* lsb-cprocsp-kc1* lsb-cprocsp-rdr-64*
 # apt-get install lsb-cprocsp-ca-certs*
 ```
-В каталог `/opt/cprocsp` установится неободимый софт в подкаталоги 
+В каталог `/opt/cprocsp/` установится неободимый софт в подкаталоги 
 `bin`,  `lib`,  `sbin`,  `share`.
 
+Добавление в тропу `PATH` каталогов `/opt/cprocsp/bin/`, `/opt/cprocsp/sbin/`
+```
+# .  /etc/bashrc.d/cryptopro-paths.sh
+```
 
+Генерация ключей:
+```
+# wget https://raw.githubusercontent.com/fullincome/scripts/master/nginx-gost/install-certs.sh && chmod +x install-certs.sh
+# ./install-certs.sh
+```
+Необходимо ввести на клавиатуре длинную последовательность символов, а затем дважды ввести выбранный пароль для ключа.
+
+Экспорт сертификата:
+```
+/opt/cprocsp/bin/amd64/certmgr -export -cert -dn "CN=srvtest" -dest '/etc/nginx/srvtest.cer'
+```
 
