@@ -25,6 +25,31 @@ MD5: eba649ae2c974a8c9d0cd69d2b508ae7
 ```
 Скаченный файл имеет имя `linux-amd64.tgz`.
 
+Запуск команды:
+```
+# apt-get update 
+# chmod a+x install-nginx.sh
+# ./install-nginx.sh --csp=linux-amd64.tgz
+```
+
+
+Добавление в тропу `PATH` каталогов `/opt/cprocsp/bin/`, `/opt/cprocsp/sbin/`
+```
+# .  /etc/bashrc.d/cryptopro-paths.sh
+```
+
+Генерация ключей:
+```
+# wget https://raw.githubusercontent.com/fullincome/scripts/master/nginx-gost/install-certs.sh && chmod +x install-certs.sh
+# ./install-certs.sh
+```
+Необходимо ввести на клавиатуре длинную последовательность символов, а затем дважды ввести выбранный пароль для ключа.
+
+Экспорт сертификата:
+```
+/opt/cprocsp/bin/amd64/certmgr -export -cert -dn "CN=srvtest" -dest '/etc/nginx/srvtest.cer'
+```
+
 
 
 
