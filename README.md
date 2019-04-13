@@ -42,14 +42,20 @@ MD5: eba649ae2c974a8c9d0cd69d2b508ae7
 
 
 
-Добавление в тропу `PATH` каталогов `/opt/cprocsp/bin/`, `/opt/cprocsp/sbin/`
+Добавление в тропу `PATH` каталогов
+`/opt/cprocsp/bin/amd64`, `/opt/cprocsp/sbin/amd64`, `/opt/cprocsp/cp-openssl-1.1.0/bin/amd64` и
+дополнительных каталогов библиотек
+`/usr/local/lib`, `/opt/cprocsp/lib/amd64/`,`/opt/cprocsp/cp-openssl-1.1.0/lib/amd64/`.
+в переменную `LD_LIBRARY_PATH`.
 ```
-# .  /etc/bashrc.d/cryptopro-paths.sh
+# .  /root/cryptopro-paths.sh
 ```
 Убедитесь, что переменаая PATH изменилась:
 ```
 # echo $PATH
-/opt/cprocsp/bin/amd64:/opt/cprocsp/sbin/amd64:/root/bin:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+/opt/cprocsp/bin/amd64:/opt/cprocsp/sbin/amd64:/opt/cprocsp/cp-openssl-1.1.0/bin/amd64:/root/bin:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+# echo  LD_LIBRARY_PATH
+/usr/local/lib:/opt/cprocsp/lib/amd64/:/opt/cprocsp/cp-openssl-1.1.0/lib/amd64/
 ```
 
 Генерация ключей:
@@ -58,13 +64,6 @@ MD5: eba649ae2c974a8c9d0cd69d2b508ae7
 # ./install-certs.sh
 ```
 Необходимо ввести на клавиатуре длинную последовательность символов, а затем дважды ввести выбранный пароль для ключа.
-
-Экспорт сертификата:
-```
-/opt/cprocsp/bin/amd64/certmgr -export -cert -dn "CN=srvtest" -dest '/etc/nginx/srvtest.cer'
-```
-
-
 
 
 ## Установка библиотек libskk-.1.1
