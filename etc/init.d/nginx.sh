@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# nginx          Start/Stop the NGINX Web Server with gost2 ssl encryptions
+#
+# chkconfig: - 85 15
+# description: Apache is a World Wide Web server.  It is used to serve \
+#              
+# processname: nginx
+# pidfile: /var/run/nginx.pid
+# config: /etc/nginx/nginx.conf
+
+
+export PATH=/opt/cprocsp/bin/amd64:/opt/cprocsp/sbin/amd64:/opt/cprocsp/cp-openssl-1.1.0/bin/amd64:/root/bin:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+export LD_LIBRARY_PATH=/usr/local/lib:/opt/cprocsp/lib/amd64/:/opt/cprocsp/cp-openssl-1.1.0/lib/amd64/
+case $1 in
+  start) 
+    /usr/sbin/nginx -c /etc/nginx/nginx.conf;
+    ;;
+  stop)
+    killall nginx;
+    ;;
+  restart)
+    killall nginx;
+    sleep 1;
+    /usr/sbin/nginx -c /etc/nginx/nginx.conf;
+esac
