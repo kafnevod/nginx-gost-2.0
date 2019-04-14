@@ -40,8 +40,6 @@ MD5: eba649ae2c974a8c9d0cd69d2b508ae7
 
 ## Установка сертификата и настройка nginx
 
-
-
 Добавление в тропу `PATH` каталогов
 `/opt/cprocsp/bin/amd64`, `/opt/cprocsp/sbin/amd64`, `/opt/cprocsp/cp-openssl-1.1.0/bin/amd64` и
 дополнительных каталогов библиотек
@@ -63,7 +61,29 @@ MD5: eba649ae2c974a8c9d0cd69d2b508ae7
 # wget https://raw.githubusercontent.com/fullincome/scripts/master/nginx-gost/install-certs.sh && chmod +x install-certs.sh
 # ./install-certs.sh
 ```
-Необходимо ввести на клавиатуре длинную последовательность символов, а затем дважды ввести выбранный пароль для ключа.
+После запроса
+```
+CryptCP 5.0 (c) "Crypto-Pro", 2002-2018.
+Command prompt Utility for file signature and encryption.
+Creating request...
+Press keys...
+```
+необходимо ввести на клавиатуре длинную последовательность символов.
+Пароль ключа должен быть пустой (введите два раза `Enter` на запросы `New password:`, `Confirm password:`).
+На запрос:
+```
+Do you want to add it to Root store? [Y]es or [N]o:
+```
+ответьте 'Y'.
+На запрос 
+```
+CPCSP: Warning: installing a root certificate with an unconfirmed thumbprint is a security risk. Do you want to install this certificate?
+Thumbprint (sha1): 046255290B0EB1CDD1797D9AB8C81F699E3687F3
+(o)OK, (c)Cancel
+```
+ответьте 'O'.
+
+
 
 
 ## Установка библиотек libskk-.1.1
