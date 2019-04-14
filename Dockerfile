@@ -4,6 +4,8 @@ FROM $BASEIMAGE
 ARG TGZFILE
 ADD /$TGZFILE /
 
+COPY /addNginxUser.sh /bin/
+
 RUN  \
   sed  -i '/user/a daemon off;' /etc/nginx/nginx.conf
   

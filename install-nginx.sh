@@ -1,7 +1,5 @@
 #!/bin/bash +x
 
-set -x
-
 ARGV=($@)
 WORK_PATH=$(pwd)
 

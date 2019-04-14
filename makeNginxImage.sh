@@ -13,9 +13,6 @@ case $1 in
 8)
   BASEIMAGE=alt:p8;
   ;;
-9)
-  BASEIMAGE=alt:sisyphus;
-  ;;
 *)
   echo -ne "Format: \n$0 distVersion\nWhere: distVersion= 7 or 8 or 9\n"
 esac
