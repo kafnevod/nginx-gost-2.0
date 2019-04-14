@@ -75,22 +75,22 @@ Press keys...
 ```
 Do you want to add it to Root store? [Y]es or [N]o:
 ```
-ответьте 'Y'.
+ответьте `Y`.
 На запрос 
 ```
 CPCSP: Warning: installing a root certificate with an unconfirmed thumbprint is a security risk. Do you want to install this certificate?
 Thumbprint (sha1): 046255290B0EB1CDD1797D9AB8C81F699E3687F3
 (o)OK, (c)Cancel
 ```
-ответьте 'O'.
+ответьте `O`.
 
 ### Добавление пользователя nginx
 
 Запустите скрипт `addNginxUser.sh`.
 В ходе работы скрипта производится:
-- создание группы nginx;
-- создание пользователя nginx;
-- установка пользователя nginx в файле конфигурации `/etc/nginx/nginx.conf`. 
+- создание группы `nginx`;
+- создание пользователя `nginx`;
+- установка пользователя `nginx` в файле конфигурации `/etc/nginx/nginx.conf`. 
 
 ### Установка стартового скрипта
 
@@ -108,38 +108,38 @@ Thumbprint (sha1): 046255290B0EB1CDD1797D9AB8C81F699E3687F3
 
 Установка с использованием docker имеет следующее преимущества:
 - создание docker-образов для платформ `ALTLinux P7`, `ALTLinux P8`;
-- создание TGZ-архивов для установки nginx на произвольное количество серверов что позволяет избежать установки ненужного в дальнейшем набора пакетов: `make`, `gcc`, `gcc+`. 
+- создание TGZ-архивов для установки `nginx` на произвольное количество серверов что позволяет избежать установки ненужного в дальнейшем набора пакетов: `make`, `gcc`, `gcc+`. 
 
 Создание docker-образов обеспечивает скрипт `makeNginxImage.sh`. 
 Скрипту передается параметр, определеющий платформу ALTLinux:
-- 7 - ALTLinux C7, P7;
-- 8 - ALTLinux C8, P8.
+- `7` - `ALTLinux C7`, `P7`;
+- `8` - `ALTLinux C8`, `P8`.
 
 Скрипт выполняет следущие щаги:
-- Создание промежуточного обаза с бинарными кодами nginx, cprocsp, openssl-1.1.
+- Создание промежуточного обаза с бинарными кодами `nginx`, `cprocsp`, `openssl-1.1`.
 - Запуск образа в виде контейнера для генерации и установка сертификата, генерация TGZ-архива. 
 - Копирование  TGZ-архива в OST-систему;
 - Создание промежуточного образа.
 
 В результате выполнения скрипта генерируются:
-- для ALTLinux C7: образ  kafnevod/nginx-gost2.0:p7, архив nginx_p7.tgz;
-- для ALTLinux C8: образ  kafnevod/nginx-gost2.0:p8, архив nginx_p8.tgz.
+- для `ALTLinux C7`: образ  `kafnevod/nginx-gost2.0:p7`, архив `nginx_p7.tgz`;
+- для `ALTLinux C8`: образ  `kafnevod/nginx-gost2.0:p8`, архив `nginx_p8.tgz`.
 
 Для установки бинарных кодов из архива поместите архив на целевые машины и выполните команды:
 ```
 cd /
 tar xvzf .../nginx_p7.tgz
 ```
-для дистрибутивов ALTLinux С7, ALTLinux P7 и
+для дистрибутивов `ALTLinux С7`, `ALTLinux P7` и
 ```
 cd /
 tar xvzf .../nginx_p8.tgz
 ```
-для дистрибутива ALTLinux С8, ALTLinux P8
+для дистрибутива `ALTLinux С8`, `ALTLinux P8`
 
 Для установки пользователя nginx выполните скрипт `addNginxUser.sh` и команду:
 ```
-# chkconfig -- add nginx
+# chkconfig --add nginx
 ```
 
 
