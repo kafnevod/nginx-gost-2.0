@@ -17,4 +17,6 @@ tar cvzf /tmp/nginx.tgz /etc/init.d/nginx \
   /var/opt/cprocsp/ \
   /etc/opt/cprocsp/ \
   /var/log/nginx/ \
-  /var/cache/nginx/
+  /var/cache/nginx
+  
+  

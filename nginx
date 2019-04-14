@@ -14,13 +14,17 @@ export PATH=/opt/cprocsp/bin/amd64:/opt/cprocsp/sbin/amd64:/opt/cprocsp/cp-opens
 export LD_LIBRARY_PATH=/usr/local/lib:/opt/cprocsp/lib/amd64/:/opt/cprocsp/cp-openssl-1.1.0/lib/amd64/
 case $1 in
   start) 
+    /opt/cprocsp/sbin/amd64/cryptsrv;
     /usr/sbin/nginx -c /etc/nginx/nginx.conf;
     ;;
   stop)
+    killall cryptsrv;
     killall nginx;
     ;;
   restart)
     killall nginx;
+    killall cryptsrv;
     sleep 1;
+    /opt/cprocsp/sbin/amd64/cryptsrv;
     /usr/sbin/nginx -c /etc/nginx/nginx.conf;
 esac

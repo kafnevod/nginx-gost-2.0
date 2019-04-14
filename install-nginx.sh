@@ -1,5 +1,7 @@
 #!/bin/bash +x
 
+set -x
+
 ARGV=($@)
 WORK_PATH=$(pwd)
 
@@ -14,12 +16,13 @@ zlib_ver="zlib-1.2.11"
 # Версия nginx для загрузки с github
 nginx_branch="stable-1.14"
 
-if cat /etc/*release* | grep -Ei "(ALT Linux)" > /dev/null
+if cat /etc/*release* | grep -Ei "(ALT )" > /dev/null
 then
   distributive="alt"
 fi
+
 # Определение команд под систему
-cat /etc/*release* | grep -Ei "(centos|red hat|ALT Linux)" > /dev/null
+cat /etc/*release* | grep -Ei "(centos|red hat|ALT )" > /dev/null
 if [ "$?" -eq 0 ]
 then
     if [ "$distributive" == "alt" ]
