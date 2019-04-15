@@ -6,7 +6,7 @@ tempContainer=nginx-gost2.0_$altDist
 finalImage=kafnevod/nginx-gost2.0:$altDist
 TGZFILE=nginx_$altDist.tgz
 
-case $1 in 
+case $1 in
 7)
   BASEIMAGE=fotengauer/altlinux-p7;
   ;;
@@ -15,12 +15,17 @@ case $1 in
   ;;
 *)
   echo -ne "Format: \n$0 distVersion\nWhere: distVersion= 7 or 8 or 9\n"
+  exit 1;
 esac
 
 docker build --build-arg BASEIMAGE=$BASEIMAGE -t $tempImage -f Dockerfile.nginx .
 
 docker rm -f $tempContainer >/dev/null 2>&1
 docker run --name $tempContainer -it $tempImage /root/set-certs.sh
+if [ $? -ne 0 ]
+then
+  exit $?
+fi
 docker cp $tempContainer:/tmp/nginx.tgz $TGZFILE
 docker rm $tempContainer
 
