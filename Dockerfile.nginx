@@ -9,7 +9,7 @@ RUN \
   apt-get update;
 
 RUN  cd /root/; \
-  ./install-nginx.sh --csp=linux-amd64.tgz;
+  ./install-nginx.sh --csp=linux-amd64.tgz;exit 0;
 
 COPY /set-certs.sh /root/
 COPY nginx /etc/init.d/

@@ -8,7 +8,7 @@ WORK_PATH=$(pwd)
 url="https://update.cryptopro.ru/support/nginx-gost"
 
 revision_openssl="/archives/164682/"
-release_openssl="5.0.11216-5"
+release_openssl="4.0.0-5"
 pcre_ver="pcre-8.42"
 zlib_ver="zlib-1.2.11"
 

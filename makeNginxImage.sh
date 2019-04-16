@@ -20,7 +20,7 @@ esac
 
 docker build --build-arg BASEIMAGE=$BASEIMAGE -t $tempImage -f Dockerfile.nginx .
 
-exit 0
+# exit 0
 docker rm -f $tempContainer >/dev/null 2>&1
 docker run --name $tempContainer -it $tempImage /root/set-certs.sh
 if [ $? -ne 0 ]
