@@ -64,7 +64,7 @@ MD5: eba649ae2c974a8c9d0cd69d2b508ae7
 ```
 После запроса
 ```
-CryptCP 5.0 (c) "Crypto-Pro", 2002-2018.
+CryptCP 4.0 (c) "Crypto-Pro", 2002-2018.
 Command prompt Utility for file signature and encryption.
 Creating request...
 Press keys...
